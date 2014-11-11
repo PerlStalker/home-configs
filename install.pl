@@ -36,15 +36,41 @@ sub install_tmux {
 sub install_byobu {
     link_file("$Bin/byobu/", "$ENV{HOME}/.byobu");
     if (not -e "$ENV{HOME}/.gcalclirc") {
-	add_task('byobu', "configure $ENV{HOME}/.gcalclirc");
+	add_task('byobu', "Configure $ENV{HOME}/.gcalclirc");
     }
 }
 
 sub install_i3 {
     link_file("$Bin/i3/i3status.conf", "$ENV{HOME}/.i3status.conf");
 
-    # combine host-pre, default, host-post
-    my $hostname = `hostname`;
+    if (not -d "$ENV{HOME}/.i3") {
+	mkdir "$ENV{HOME}/.i3";
+    }
+
+    link_file("$Bin/i3/config", "$ENV{HOME}/.i3");
+    
+    # combine host-head, default, host-foot
+    my $hostname = `hostname -s`;
+
+    my $head = "$Bin/i3/config/default-head";
+    if (-e "$Bin/i3/config/$hostname-head") {
+	$head = "$Bin/i3/config/$hostname-head";
+    }
+
+    my $middle = "$Bin/i3/config/default-middle";
+    
+    my $foot = "$Bin/i3/config/default-foot";
+    if (-e "$Bin/i3/config/$hostname-foot") {
+	$foot = "$Bin/i3/config/$hostname-head";
+    }
+
+    system ("cat $head $middle $foot > $ENV{HOME}/.i3/config");
+}
+
+sub install_dropbox {
+    if (not -d "$ENV{HOME}/.dropbox-dist") {
+	system "cd ~ && wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf -";
+    }
 }
 
 sub install_ssh {
@@ -61,10 +87,18 @@ sub install_ssh {
     }
 }
 
+sub install_gnupg {
+    if (not -d "$ENV{HOME}/.gnupg") {
+	add_task('gnupg', 'Copy or restore gpg keys');
+    }
+}
+
 my %dispatch_table = (
-    tmux  => \&install_tmux,
-    byobu => \&install_byobu,
-    ssh   => \&install_ssh,
+    tmux    => \&install_tmux,
+    byobu   => \&install_byobu,
+    ssh     => \&install_ssh,
+    gnupg   => \&install_gnupg,
+    dropbox => \&install_dropbox,
     );
 
 
@@ -73,6 +107,7 @@ if (not @apps) {
     @apps = sort keys %dispatch_table;
 }
 
+## install apps
 foreach my $app (@apps) {
     if (defined $dispatch_table{$app}) {
 	&{ $dispatch_table{$app} };
@@ -81,6 +116,7 @@ foreach my $app (@apps) {
     }
 }
 
+## print tasks
 foreach my $task (@tasks) {
     print "- [ ] $task\n";
 }
