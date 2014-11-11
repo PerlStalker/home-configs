@@ -43,28 +43,27 @@ sub install_byobu {
 sub install_i3 {
     link_file("$Bin/i3/i3status.conf", "$ENV{HOME}/.i3status.conf");
 
-    if (not -d "$ENV{HOME}/.i3") {
-	mkdir "$ENV{HOME}/.i3";
-    }
-
-    link_file("$Bin/i3/config", "$ENV{HOME}/.i3");
+    link_file("$Bin/i3/config/", "$ENV{HOME}/.i3");
     
     # combine host-head, default, host-foot
     my $hostname = `hostname -s`;
+    chomp $hostname;
 
-    my $head = "$Bin/i3/config/default-head";
-    if (-e "$Bin/i3/config/$hostname-head") {
-	$head = "$Bin/i3/config/$hostname-head";
+    my $head = "$Bin/i3/default-head";
+    if (-r "$Bin/i3/$hostname-head") {
+	$head = "$Bin/i3/$hostname-head";
     }
 
-    my $middle = "$Bin/i3/config/default-middle";
+    my $middle = "$Bin/i3/default-middle";
     
-    my $foot = "$Bin/i3/config/default-foot";
-    if (-e "$Bin/i3/config/$hostname-foot") {
-	$foot = "$Bin/i3/config/$hostname-head";
+    my $foot = "$Bin/i3/default-foot";
+    if (-r "$Bin/i3/$hostname-foot") {
+	$foot = "$Bin/i3/$hostname-foot";
     }
 
-    system ("cat $head $middle $foot > $ENV{HOME}/.i3/config");
+    my $cmd = ("cat $head $middle $foot > $ENV{HOME}/.i3/config");
+    print STDERR "$cmd\n";
+    system $cmd;
 }
 
 sub install_dropbox {
@@ -99,6 +98,7 @@ my %dispatch_table = (
     ssh     => \&install_ssh,
     gnupg   => \&install_gnupg,
     dropbox => \&install_dropbox,
+    i3      => \&install_i3,
     );
 
 
