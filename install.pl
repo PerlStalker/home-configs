@@ -4,6 +4,15 @@ use strict;
 
 use FindBin qw($Bin);
 
+my @tasks = ();
+
+sub add_task {
+    my $app     = shift;
+    my $message = shift;
+
+    push @tasks, "$app: $message";
+}
+
 sub link_file {
     my $source = shift;
     my $dest   = shift;
@@ -27,7 +36,7 @@ sub install_tmux {
 sub install_byobu {
     link_file("$Bin/byobu/", "$ENV{HOME}/.byobu");
     if (not -e "$ENV{HOME}/.gcalclirc") {
-	print "Please configure $ENV{HOME}/.gcalclirc\n";
+	add_task('byobu', "configure $ENV{HOME}/.gcalclirc");
     }
 }
 
@@ -44,7 +53,12 @@ sub install_ssh {
 	system ('chmod', '700', "$ENV{HOME}/.ssh");
     }
     link_file ("$Bin/ssh/config", "$ENV{HOME}/.ssh/config");
-    
+
+    if (not -e "$ENV{HOME}/.ssh/id_dsa"
+	and not -e "$ENV{HOME}/.ssh/id_rsa"
+	) {
+	add_task('ssh', 'Create or restore ssh keys');
+    }
 }
 
 my %dispatch_table = (
@@ -65,4 +79,8 @@ foreach my $app (@apps) {
     } else {
 	warn "Unknown app: $app\n";
     }
+}
+
+foreach my $task (@tasks) {
+    print "- [ ] $task\n";
 }
