@@ -29,7 +29,9 @@ sub link_file {
 	}
     } else {
 	if (not -l $dest) {
-	    system ('mv', $dest, "$dest-backup-".time());
+	    if (-e $dest) {
+		system ('mv', $dest, "$dest-backup-".time());
+	    }
 	    system ('ln', '-sf', $source, $dest);
 	}
     }
