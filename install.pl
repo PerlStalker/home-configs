@@ -26,7 +26,9 @@ sub install_tmux {
 
 sub install_byobu {
     link_file("$Bin/byobu/", "$ENV{HOME}/.byobu");
-    print "Please configure $ENV{HOME}/.gcalclirc\n";
+    if (not -e "$ENV{HOME}/.gcalclirc") {
+	print "Please configure $ENV{HOME}/.gcalclirc\n";
+    }
 }
 
 sub install_i3 {
