@@ -22,10 +22,16 @@ sub link_file {
 	if ($copy eq 'rsync') {
 	    system ('rsync', '-aq', $source, $dest);
 	} else {
+	    if (-e $dest) {
+		system ('mv', $dest, "$dest-backup-".time());
+	    }
 	    system ('cp', '-R', $source, $dest);
 	}
     } else {
-	system ('ln', '-sf', $source, $dest);
+	if (not -l $dest) {
+	    system ('mv', $dest, "$dest-backup-".time());
+	    system ('ln', '-sf', $source, $dest);
+	}
     }
 }
 
@@ -41,13 +47,19 @@ sub install_byobu {
 }
 
 sub install_i3 {
-    link_file("$Bin/i3/i3status.conf", "$ENV{HOME}/.i3status.conf");
+    my $hostname = `hostname -s`;
+    chomp $hostname;
+
+    my $i3status = "$Bin/i3/i3status.conf";
+    if (-r "$Bin/i3/$hostname-i3status.conf") {
+	$i3status = "$Bin/i3/$hostname-i3status.conf";
+    }
+    
+    link_file($i3status, "$ENV{HOME}/.i3status.conf");
 
     link_file("$Bin/i3/config/", "$ENV{HOME}/.i3");
     
     # combine host-head, default, host-foot
-    my $hostname = `hostname -s`;
-    chomp $hostname;
 
     my $head = "$Bin/i3/default-head";
     if (-r "$Bin/i3/$hostname-head") {
@@ -62,7 +74,7 @@ sub install_i3 {
     }
 
     my $cmd = ("cat $head $middle $foot > $ENV{HOME}/.i3/config");
-    print STDERR "$cmd\n";
+    #print STDERR "$cmd\n";
     system $cmd;
 }
 
