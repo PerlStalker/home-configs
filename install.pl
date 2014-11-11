@@ -91,6 +91,10 @@ sub install_ssh {
 	mkdir "$ENV{HOME}/.ssh";
 	system ('chmod', '700', "$ENV{HOME}/.ssh");
     }
+    if (not -d "$ENV{HOME}/.ssh/control") {
+	mkdir "$ENV{HOME}/.ssh/control";
+    }
+    
     link_file ("$Bin/ssh/config", "$ENV{HOME}/.ssh/config");
 
     if (not -e "$ENV{HOME}/.ssh/id_dsa"
@@ -107,10 +111,10 @@ sub install_gnupg {
 }
 
 sub install_xfce4 {
-    if (-e "$ENV{HOME}/.config") {
+    if (not -e "$ENV{HOME}/.config") {
 	mkdir "$ENV{HOME}/.config";
     }
-    if (-e "$ENV{HOME}/.config/xfce4") {
+    if (not -e "$ENV{HOME}/.config/xfce4") {
 	mkdir "$ENV{HOME}/.config/xfce4";
     }
 
