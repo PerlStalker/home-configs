@@ -106,6 +106,17 @@ sub install_gnupg {
     }
 }
 
+sub install_xfce4 {
+    if (-e "$ENV{HOME}/.config") {
+	mkdir "$ENV{HOME}/.config";
+    }
+    if (-e "$ENV{HOME}/.config/xfce4") {
+	mkdir "$ENV{HOME}/.config/xfce4";
+    }
+
+    link_file ("$Bin/xfce4/terminal/", "$ENV{HOME}/.config/xfce4/terminal");
+}
+
 my %dispatch_table = (
     tmux    => \&install_tmux,
     byobu   => \&install_byobu,
@@ -113,6 +124,7 @@ my %dispatch_table = (
     gnupg   => \&install_gnupg,
     dropbox => \&install_dropbox,
     i3      => \&install_i3,
+    xfce4   => \&install_xfce4,
     );
 
 
