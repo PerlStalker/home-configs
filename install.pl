@@ -26,7 +26,7 @@ sub install_tmux {
 
 sub install_byobu {
     link_file("$Bin/byobu/", "$ENV{HOME}/.byobu");
-    print "Please configure $ENV{HOME}/.gcalclirc\n");
+    print "Please configure $ENV{HOME}/.gcalclirc\n";
 }
 
 sub install_i3 {
@@ -36,9 +36,19 @@ sub install_i3 {
     my $hostname = `hostname`;
 }
 
+sub install_ssh {
+    if (not -d "$ENV{HOME}/.ssh") {
+	mkdir "$ENV{HOME}/.ssh";
+	system ('chmod', '700', "$ENV{HOME}/.ssh");
+    }
+    link_file ("$Bin/ssh/config", "$ENV{HOME}/.ssh/config");
+    
+}
+
 my %dispatch_table = (
     tmux  => \&install_tmux,
-    byobu => \&install_byobu
+    byobu => \&install_byobu,
+    ssh   => \&install_ssh,
     );
 
 
