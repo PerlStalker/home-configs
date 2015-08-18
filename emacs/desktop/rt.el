@@ -1,0 +1,18 @@
+(defun rtc ()
+  (interactive)
+  (if (get-buffer "*rtc*")
+      (switch-to-buffer "*rtc*")
+    (rtc-create)
+    )
+)
+
+(defun rtc-create ()
+  (eshell t)
+  (rename-buffer "*rtc*")
+  ;(eshell-command "~/bin/rtc")
+  (goto-char (point-max))
+  (eshell-kill-input)
+  (insert "~/bin/rtc")
+  (eshell-send-input)
+  ;; How do I automatically close the buffer when rtc exits?
+)

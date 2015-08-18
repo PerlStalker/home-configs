@@ -1,0 +1,10 @@
+;;(add-to-list 'load-path "~/.emacs.d/pianobar.el")
+(set-variable 'pianobar-command "~/src/vc/pianobar/pianobar")
+(set-variable 'pianobar-program-command "~/src/vc/pianobar/pianobar")
+(setq pianobar-username "perlstalker@gmail.com")
+(autoload 'pianobar "pianobar" nil t)
+(global-set-key "\C-c+" 'pianobar-love-current-song)
+(global-set-key "\C-c-" 'pianobar-ban-current-song)
+
+(setq pianobar-key (kbd "\C-c r"))
+;(pianobar-key-setup)

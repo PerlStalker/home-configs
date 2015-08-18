@@ -48,6 +48,11 @@ sub install_byobu {
     }
 }
 
+sub install_emacs {
+    link_file("$Bin/emacs/", "$ENV{HOME}/.emacs.d");
+    link_file("$ENV{HOME}/.emacs.d/init.el" "$ENV{HOME}/.emacs.d/conf/init.el");
+}
+
 sub install_i3 {
     my $hostname = `hostname -s`;
     chomp $hostname;

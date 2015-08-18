@@ -1,0 +1,29 @@
+# -*- mode: snippet -*-
+# name: Maintenance Checklist Header
+# key: maint-header
+# binding: C-c C-m h
+# --
+* System Maintenance: $1
+
+- When :: $2
+- What :: $3
+- Why :: $4
+- Who :: ${5:rbsmith}
+- Where :: ${6:home}
+- How Long :: ${7:2 hours}
+- Planned Downtime :: ${8:1 hour}
+
+** Maintenance Procedure Checklist
+
+- [ ] Add to Ops meeting notes and Maint Calendar
+- [ ] Most recent system backup successful
+- [ ] $9
+
+*** Notes
+
+** Service Verification Checklist
+
+- [ ] $10
+
+*** Notes
+
