@@ -53,7 +53,7 @@ sub install_emacs {
 	mkdir "$ENV{HOME}/.emacs.d";
     }
     link_file("$Bin/emacs/", "$ENV{HOME}/.emacs.d/conf");
-    link_file("$ENV{HOME}/.emacs.d/init.el", "$ENV{HOME}/.emacs.d/conf/init.el");
+    link_file("$ENV{HOME}/.emacs.d/conf/init.el", "$ENV{HOME}/.emacs.d/init.el");
 }
 
 sub install_i3 {
