@@ -1,4 +1,4 @@
-#!/bin/env perl
+#!/usr/bin/perl
 use warnings;
 use strict;
 
@@ -139,6 +139,7 @@ my %dispatch_table = (
     dropbox => \&install_dropbox,
     i3      => \&install_i3,
     xfce4   => \&install_xfce4,
+    emacs   => \&install_emacs,
     );
 
 
