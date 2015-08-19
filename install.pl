@@ -49,7 +49,7 @@ sub install_byobu {
 }
 
 sub install_emacs {
-    link_file("$Bin/emacs/", "$ENV{HOME}/.emacs.d");
+    link_file("$Bin/emacs/", "$ENV{HOME}/.emacs.d/conf");
     link_file("$ENV{HOME}/.emacs.d/init.el", "$ENV{HOME}/.emacs.d/conf/init.el");
 }
 
@@ -134,6 +134,7 @@ my %dispatch_table = (
     dropbox => \&install_dropbox,
     i3      => \&install_i3,
     xfce4   => \&install_xfce4,
+    emacs   => \&install_emacs,
     );
 
 
