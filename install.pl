@@ -94,6 +94,9 @@ sub install_dropbox {
     }
 
     # get dropbox.py tool
+    system "wget -O ~/bin/dropbox.py 'https://www.dropbox.com/download?dl=packages/dropbox.py'";
+    system "chmod +x ~/bin/dropbox.py";
+	
 }
 
 sub install_ssh {
