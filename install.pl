@@ -94,6 +94,9 @@ sub install_dropbox {
     }
 
     # get dropbox.py tool
+    if (not -d "$ENV{HOME}/bin") {
+	mkdir "$ENV{HOME}/bin";
+    }
     system "wget -O ~/bin/dropbox.py 'https://www.dropbox.com/download?dl=packages/dropbox.py'";
     system "chmod +x ~/bin/dropbox.py";
 	
