@@ -49,6 +49,9 @@ sub install_byobu {
 }
 
 sub install_emacs {
+    if (not -d "$ENV{HOME}/.emacs.d") {
+	mkdir "$ENV{HOME}/.emacs.d";
+    }
     link_file("$Bin/emacs/", "$ENV{HOME}/.emacs.d/conf");
     link_file("$ENV{HOME}/.emacs.d/init.el", "$ENV{HOME}/.emacs.d/conf/init.el");
 }
@@ -89,6 +92,8 @@ sub install_dropbox {
     if (not -d "$ENV{HOME}/.dropbox-dist") {
 	system "cd ~ && wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf -";
     }
+
+    # get dropbox.py tool
 }
 
 sub install_ssh {
