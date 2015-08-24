@@ -20,6 +20,7 @@ Host *
     ForwardAgent no
     ForwardX11 yes
     ForwardX11Trusted yes
+    PubkeyAcceptedKeyTypes +ssh-dss
 #   RhostsRSAAuthentication no
 #   RSAAuthentication yes
 #   PasswordAuthentication yes
