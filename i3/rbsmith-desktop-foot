@@ -2,15 +2,10 @@
 ## workspace layouts
 workspace_layout tabbed
 
-workspace 1 output DVI-I-1
-workspace 2 output VGA-1
-
-# workspace 1
-exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/rbsmith/.i3/workspace-1.json'"
+workspace 1 output HDMI1
+workspace 2 output VGA1
 
 exec --no-startup-id xfce4-terminal
-exec --no-startup-id emacsclient -c
-exec --no-startup-id emacsclient -c
 
-# workspace 2
-exec --no-startup-id "sleep 1; i3-msg 'workspace 2; append_layout /home/rbsmith/.i3/workspace-2.json'"
+bindsym $mod+F10 exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym $mod+F9  exec --no-startup-id amixer -D pulse sset Master 5%-
