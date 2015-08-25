@@ -8,3 +8,6 @@
     (:connection-type . ssl))
    )
 )
+
+(require 'jabber)
+(require 'jabber-autoloads)
