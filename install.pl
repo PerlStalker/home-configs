@@ -121,6 +121,12 @@ sub install_xfce4 {
     link_file ("$Bin/xfce4/terminal/", "$ENV{HOME}/.config/xfce4/terminal");
 }
 
+sub install_emacs {
+    # TODO emacs configs
+    # link elfeed data to shared location in dropbox
+    link_file ("$ENV{HOME}/Dropbox/elfeed", "ENV{HOME}/.elfeed");
+}
+
 my %dispatch_table = (
     tmux    => \&install_tmux,
     byobu   => \&install_byobu,
