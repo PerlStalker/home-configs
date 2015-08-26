@@ -143,6 +143,7 @@ sub install_conkeror {
     if (not -x "/usr/sbin/conkeror") {
 	add_task('conkeror', 'Install conkeror: ~aura -A conkeror-git~');
     }
+}
 
 my %dispatch_table = (
     tmux    => \&install_tmux,
