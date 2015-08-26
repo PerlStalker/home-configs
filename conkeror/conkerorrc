@@ -1,0 +1,33 @@
+session_pref("xpinstall.whitelist.required", false);
+
+/* /usr/share/conkeror/modules/extensions/adblockplus.js */
+
+/* load('adblockplus'); */
+/* user_pref('conkeror.load.adblockplus', 1); */
+
+require('adblockplus.js');
+
+/* Middle-click opens link in new buffer */
+require("clicks-in-new-buffer.js");
+
+require("mode-line.js")
+
+/* fix gmail keybindings: http://conkeror.org/GMail */
+require("gmail");
+page_mode_activate("gmail");
+
+/* google search results: http://conkeror.org/GoogleSearchResults */
+require('google-search-results');
+page_mode_activate('google-search-results');
+google_search_bind_number_shortcuts();
+
+/* youtube player: http://conkeror.org/YouTube */
+require('youtube-player');
+page_mode_activate('youtube-player');
+
+/* session */
+require("session.js");
+// session-auto-save-load-window-
+
+/* tab-bar */
+//require('tab-bar.js');

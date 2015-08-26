@@ -1,5 +1,9 @@
 #!/bin/bash
 #head -n 1 $HOME/tmp/reminders
-REMINDER=`gcalcli remind 12 'echo "%s"' | grep -v 'Google Calendar Reminder' | head -n 1`
+GCALCLI=/usr/sbin/gcalcli
+REMINDER=
+if [ -x $GCALCLI ]; then
+    REMINDER=`gcalcli remind 12 'echo "%s"' | grep -v 'Google Calendar Reminder' | head -n 1`
+fi
 #printf "%s" "$REMINDER"
 echo "$REMINDER"

@@ -17,7 +17,7 @@
                "y": 0
             },
             "name": "emacs",
-            "percent": 0.2875,
+            "percent": 1,
             "swallows": [
                {
 	       "class": "^Emacs$",

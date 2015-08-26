@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Maintenance Checklist Footer
+# key: maint-footer
+# binding: C-c C-m f
+# --
+** Completion Data
+
+- Service Verification Completed, Time :: $1
+- Actual Downtime :: $2
+- Next System Backup Successful, Date :: $3
+
+*** Notes

@@ -1,4 +1,4 @@
-#!/bin/env perl
+#!/usr/bin/perl
 use warnings;
 use strict;
 
@@ -48,6 +48,14 @@ sub install_byobu {
     }
 }
 
+sub install_emacs {
+    if (not -d "$ENV{HOME}/.emacs.d") {
+	mkdir "$ENV{HOME}/.emacs.d";
+    }
+    link_file("$Bin/emacs/", "$ENV{HOME}/.emacs.d/conf");
+    link_file("$ENV{HOME}/.emacs.d/conf/init.el", "$ENV{HOME}/.emacs.d/init.el");
+}
+
 sub install_i3 {
     my $hostname = `hostname -s`;
     chomp $hostname;
@@ -84,6 +92,14 @@ sub install_dropbox {
     if (not -d "$ENV{HOME}/.dropbox-dist") {
 	system "cd ~ && wget -O - \"https://www.dropbox.com/download?plat=lnx.x86_64\" | tar xzf -";
     }
+
+    # get dropbox.py tool
+    if (not -d "$ENV{HOME}/bin") {
+	mkdir "$ENV{HOME}/bin";
+    }
+    system "wget -O ~/bin/dropbox.py 'https://www.dropbox.com/download?dl=packages/dropbox.py'";
+    system "chmod +x ~/bin/dropbox.py";
+	
 }
 
 sub install_ssh {
@@ -121,11 +137,12 @@ sub install_xfce4 {
     link_file ("$Bin/xfce4/terminal/", "$ENV{HOME}/.config/xfce4/terminal");
 }
 
-sub install_emacs {
-    # TODO emacs configs
-    # link elfeed data to shared location in dropbox
-    link_file ("$ENV{HOME}/Dropbox/elfeed", "ENV{HOME}/.elfeed");
-}
+sub install_conkeror {
+    link_file ("$Bin/conkeror/conkerorrc", "$ENV{HOME}/.conkerorrc");
+
+    if (not -x "/usr/sbin/conkeror") {
+	add_task('conkeror', 'Install conkeror: ~aura -A conkeror-git~');
+    }
 
 my %dispatch_table = (
     tmux    => \&install_tmux,
@@ -135,6 +152,8 @@ my %dispatch_table = (
     dropbox => \&install_dropbox,
     i3      => \&install_i3,
     xfce4   => \&install_xfce4,
+    emacs   => \&install_emacs,
+    conkeror => \&install_conkeror,
     );
 
 
