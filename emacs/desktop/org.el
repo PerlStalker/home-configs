@@ -215,7 +215,7 @@
 (org-crypt-use-before-save-magic)
 
 ; gpg key to use for encryption
-(setq org-crypt-key "3A02577D")
+(setq org-crypt-key "0x7CA638BCAF301D3E")
 
 ;; To turn autosave off only locally, you can insert this:
 ;;
