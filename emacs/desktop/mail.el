@@ -18,6 +18,11 @@
 (setq mm-verify-option "always")
 (setq mm-decrypt-option "always")
 
+(setq gnus-buttonized-mime-types
+      '(
+	"multipart/signed"
+	))
+
 ;; use w3m to render mail
 (setq mm-text-html-renderer 'w3m)
 (setq mm-inline-text-html-with-images t)
@@ -113,7 +118,7 @@
 ;;    ))
 
 
-;(setq gnus-summary-line-format "%U%R%B%(%[%&user-date;: %-15,15f%]%) %s\n")
+(setq gnus-summary-line-format "%U%R%B%(%[%&user-date;: %-15,15f%]%) %s\n")
 
 ;; make tree view prettier (in xterm)
 ;(setq gnus-summary-make-false-root 'dummy
