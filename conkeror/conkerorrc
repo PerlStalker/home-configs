@@ -31,3 +31,13 @@ require("session.js");
 
 /* tab-bar */
 //require('tab-bar.js');
+
+/*** Google calendar work around ***/
+require("user-agent-policy");
+
+// Tell Google Calendar that we are Firefox not Conkeror:
+user_agent_policy.define_policy(
+    "GCal",
+    user_agent_firefox(),
+    build_url_regexp($domain = /(.*\.)?google/, $path = /calendar/)
+);
