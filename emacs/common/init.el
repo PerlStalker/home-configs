@@ -7,6 +7,7 @@
 ;;(load-file "~/.emacs.d/conf/common/multi-term.el")
 (load-file "~/.emacs.d/conf/common/tramp.el")
 
+(load-file "~/.emacs.d/conf/dired.el")
 
 (setq inhibit-startup-screen t)
 (tool-bar-mode -1)
