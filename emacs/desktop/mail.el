@@ -1,8 +1,9 @@
 ;(el-get 'sync "gnus")
 
 ;; smtpmail-multi
-(el-get-bundle elpa:smtpmail-multi)
+;;(el-get-bundle elpa:smtpmail-multi)
 ;;(el-get-bundle vapniks/smtpmail-multi)
+(package-install 'smtpmail-multi)
 (setq message-send-mail-function 'smtpmail-multi-send-it)
 
 ;;(setq sendmail-program "/usr/bin/msmtp")
