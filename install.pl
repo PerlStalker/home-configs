@@ -137,6 +137,14 @@ sub install_xfce4 {
     link_file ("$Bin/xfce4/terminal/", "$ENV{HOME}/.config/xfce4/terminal");
 }
 
+sub install_conkeror {
+    link_file ("$Bin/conkeror/conkerorrc", "$ENV{HOME}/.conkerorrc");
+
+    if (not -x "/usr/sbin/conkeror") {
+	add_task('conkeror', 'Install conkeror: ~aura -A conkeror-git~');
+    }
+}
+
 my %dispatch_table = (
     tmux    => \&install_tmux,
     byobu   => \&install_byobu,
@@ -146,6 +154,7 @@ my %dispatch_table = (
     i3      => \&install_i3,
     xfce4   => \&install_xfce4,
     emacs   => \&install_emacs,
+    conkeror => \&install_conkeror,
     );
 
 
