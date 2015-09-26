@@ -1,0 +1,55 @@
+# -*- mode: snippet -*-
+# name: Podcast
+# key: podcast
+# binding: C-c C-m p
+# --
+---
+layout: podcast
+author: Randall Smith
+title: "Music Free $1 $2: $3"
+date: ${4:$$(concat (format-time-string "%Y-%m-%dT%T") ((lambda (x) (concat (substring x 0 3) ":" (substring x 3 5))) (format-time-string "%z")))}
+tags:
+  - $5
+youtube: ""
+stitcher:
+categories:
+  - ${1:$(if (string-equal yas-text "Static") (concat "politics") (if (string-equal yas-text "technology") (concat "mft")))}
+  - podcast
+duration: 
+length: 
+link: "https://archive.org/download/mf${1:$(downcase (substring yas-text 0 1))}$2-audio/mf${1:$(downcase (substring yas-text 0 1))}$2-audio.mp3"
+type: "audio/mpeg"
+---
+
+* Introduction
+Welcome to Music Free $1. This is episode $2 recorded on ${4:$(format-time-string "%d %B %Y")}.
+
+#+begin_ascii
+New shows air every Saturday.
+
+Become a patron of Music Free Static at http://patreon.com/musicfreestatic.
+
+Get T-shirts, hats, coffee mugs and all sorts of cool stuff at the
+Music Free Static store. http://cafepress.com/musicfreestatic
+
+Subscribe to Music Free Static:
+- Website      : http://www.musicfreestatic.com/
+- YouTube      : http://www.youtube.com/musicfreestatic
+- iTunes       : http://itunes.apple.com/us/podcast/music-free-static/id533100249
+- Google+      : https://google.com/%2BMusicFreeStatic
+- Facebook     : https://www.facebook.com/MusicFreeStatic
+- Twitter      : @musicfreestatic
+- Stitcher     : https://www.stitcher.com/podcast/music-free-static
+- TuneIn       : http://tunein.com/radio/Music-Free-Static-p605131/
+- Podcast feed : http://feeds.feedburner.com/MusicFreeStatic
+#+end_ascii
+
+* ${8:$3}
+$9
+** notes							  :noexport:
+* Copyright
+Music Free Static is licensed under a Creative Commons
+Attribution-ShareAlike 4.0 International License.
+
+#+OPTIONS: ^:nil
+#+EXPORT_EXCLUDE_TAGS: noexport
