@@ -1,3 +1,5 @@
+(el-get 'sync "emacs-jabber")
+
 (setq jabber-account-list
  '(
    ("rbsmith@adams.edu"
