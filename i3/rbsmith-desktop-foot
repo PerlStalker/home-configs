@@ -7,5 +7,7 @@ workspace 2 output VGA1
 
 exec --no-startup-id xfce4-terminal
 
-bindsym $mod+F10 exec --no-startup-id amixer -D pulse sset Master 5%+
-bindsym $mod+F9  exec --no-startup-id amixer -D pulse sset Master 5%-
+#bindsym $mod+F10 exec --no-startup-id amixer -D pulse sset Master 5%+
+#bindsym $mod+F9  exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym Mod1+F10 exec --no-startup-id amixer -D pulse sset Master 5%+
+bindsym Mod1+F9  exec --no-startup-id amixer -D pulse sset Master 5%-
