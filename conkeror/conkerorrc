@@ -32,6 +32,9 @@ require("session.js");
 /* tab-bar */
 //require('tab-bar.js');
 
+/* github */
+require("github")
+
 /*** Google calendar work around ***/
 require("user-agent-policy");
 
