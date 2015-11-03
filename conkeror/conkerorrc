@@ -1,5 +1,10 @@
 session_pref("xpinstall.whitelist.required", false);
 
+/* enable spell check
+ * See: http://kb.mozillazine.org/Layout.spellcheckDefault
+ */
+user_pref('layout.textarea.spellcheckDefault', 2);
+
 /* /usr/share/conkeror/modules/extensions/adblockplus.js */
 
 /* load('adblockplus'); */
