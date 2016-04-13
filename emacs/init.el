@@ -3,7 +3,7 @@
 (load-file "~/.emacs.d/conf/common/init.el")
 (if
  (member
-  (system-name) '("rbsmith-desktop.adams.edu" "rbsmith-laptop" "ChrUbuntu" "shelob.vuser.org" "localhost" "archusb.localdomain"))
+  (system-name) '("rbsmith-desktop.adams.edu" "rbsmith-laptop" "ChrUbuntu" "shelob.vuser.org" "localhost" "archusb.localdomain" "rbsmith-chromebook"))
  (load-file "~/.emacs.d/conf/desktop/init.el")
  (load-file "~/.emacs.d/conf/server/init.el")
 )
