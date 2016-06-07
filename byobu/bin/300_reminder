@@ -3,7 +3,7 @@
 GCALCLI=/usr/sbin/gcalcli
 REMINDER=
 if [ -x $GCALCLI ]; then
-    REMINDER=`gcalcli remind 12 'echo "%s"' | grep -v 'Google Calendar Reminder' | head -n 1`
+    REMINDER=`gcalcli remind 12 'echo "%s"' --calendar "rbsmith@adams.edu" --calendar "Randy Smith" --calendar "Academic Calendar - Adams State University" --calendar "CS Out-of-the-office" | grep -v 'Google Calendar Reminder' | head -n 1`
 fi
 #printf "%s" "$REMINDER"
 echo "$REMINDER"

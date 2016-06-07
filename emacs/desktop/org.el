@@ -13,6 +13,7 @@
   )))		 
 
 (require 'ox-latex)
+(require 'ox-bibtex)
 (add-to-list 'org-latex-classes
  '(
    "beamer"
