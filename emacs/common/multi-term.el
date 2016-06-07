@@ -6,3 +6,6 @@
 (global-set-key (kbd "C-c n") 'multi-term-next)
 (global-set-key (kbd "C-c p") 'multi-term-prev)
 (global-set-key (kbd "C-c t") 'multi-term)
+
+(add-hook 'term-mode-hook (lambda()
+				(setq yas-dont-activate t)))
