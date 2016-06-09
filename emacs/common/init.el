@@ -4,7 +4,7 @@
 
 (load-file "~/.emacs.d/conf/common/mailcrypt.el")
 ;; multi-term breaks with emacs 24.4
-;;(load-file "~/.emacs.d/conf/common/multi-term.el")
+(load-file "~/.emacs.d/conf/common/multi-term.el")
 (load-file "~/.emacs.d/conf/common/tramp.el")
 
 (load-file "~/.emacs.d/conf/common/dired.el")

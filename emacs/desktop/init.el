@@ -17,6 +17,11 @@
   (load-file "~/.emacs.d/conf/desktop/chromium.el")
 )
 
+(if (string= (system-name) "rbsmith-desktop.adams.edu")
+    (load-file "~/.emacs.d/conf/desktop/conkeror.el")
+  (load-file "~/.emacs.d/conf/desktop/chromium.el")
+)
+
 (load-file "~/.emacs.d/conf/desktop/blogs.el")
 ;;(load-file "~/.emacs.d/conf/desktop/elfeed.el")
 ;;(load-file "~/.emacs.d/conf/desktop/newsticker.el")
