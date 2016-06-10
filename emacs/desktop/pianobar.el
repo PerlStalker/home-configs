@@ -8,4 +8,4 @@
 
 (setq pianobar-key (kbd "<f7>"))
 ;(setq pianobar-key (kbd "\C-c r"))
-(pianobar-key-setup)
+;(pianobar-key-setup)
