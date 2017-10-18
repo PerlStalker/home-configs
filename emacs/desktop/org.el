@@ -4,6 +4,9 @@
 
 (setq org-babel-sh-command "/usr/sbin/bash")
 
+(package-install 'yankpad)
+(setq yankpad-file "~/.emacs.d/conf/snippets/yankpad.org")
+
 ;; org-modules
 (setq org-modules
  (quote
@@ -23,7 +26,8 @@
    ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")
 ))
 
-(setq org-latex-pdf-process '("texi2dvi -p -b -V %f"))
+'(setq org-latex-pdf-process '("texi2dvi -p -b -V %f"))
+(setq org-latex-pdf-process (list "latexmk -f -pdf %f"))
 
 (defun my-org-confirm-babel-evaluate (lang body)
   (not (string= lang "ditaa")))  ; don't ask for ditaa
@@ -53,6 +57,7 @@
  (quote (
 	 "~/org/todo.org" "~/org/notes.org" "~/org/meetings/"
 	 "~/org/calendars/"
+	 "~/Dropbox/orgzly/"
 	 )))
 
 (setq org-link-abbrev-alist
@@ -71,8 +76,43 @@
 :PROPERTIES:
 :EMAIL: %(org-contacts-template-email)
 :END:")
+   ("m" "Maintenance" entry (function rbsmith-maint-file) "* System Maintenance: %?
+
+- When :: 
+- What :: 
+- Why :: 
+- Who :: rbsmith
+- Where :: office
+- How Long :: 2 hours
+- Planned Downtime ::  hour
+
+** Maintenance Procedure Checklist
+
+- [ ] Add to Ops meeting notes and Maint Calendar
+- [ ] Most recent system backup successful
+- [ ] 
+
+*** Notes
+
+** Service Verification Checklist
+
+- [ ] 
+
+*** Notes
+
+"
+    )
    ))
 
+(defun rbsmith-maint-file ()
+    (find-file (concat "~/mnt/shared/CS/Sysadmin/maintenance/"
+	    (format-time-string "%Y-%m")
+	    "/rbsmith-"
+	    (format-time-string "%Y-%m-maintenance.org")
+	    )
+	  )
+    )
+ 
 (setq org-remember-templates
  '(("Todo" ?t "* TODO %?\n %i\n" "~/org/todo.org")
    ("Journal" ?j "* %U %?\n\n %i\n" "~/org/journal.org" date-tree)
