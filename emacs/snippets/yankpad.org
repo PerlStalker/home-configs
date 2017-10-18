@@ -1,0 +1,43 @@
+* org-mode
+** System Maintenance                                    :indent_auto:maint:
+\* System Maintenance
+- When :: $1
+- What :: $2 
+- Why :: Errata updates
+- Who :: rbsmith
+- Where :: office
+- How Long :: 2 hours
+- Planned Downtime :: 1 hour
+
+\** Maintenance Procedure Checklist
+
+- [ ] Add to Ops meeting notes and Maint Calendar
+- [ ] Most recent system backup successful
+- [ ] $3
+
+\*** Notes
+
+\** Service Verification Checklist
+
+- [ ] $4
+
+\*** Notes
+
+\** Completion Data
+
+- Service Verification Completed, Time :: $5
+- Actual Downtime :: $6
+- Next System Backup Successful, Date :: $7
+
+\*** Notes
+
+** banner servers
+
+** linux servers
+
+** docker servers                                              :indent_auto:
+- [ ] dock02
+- [ ] dock03
+- [ ] dock04
+- [ ] dock05
+- [ ] dock06
