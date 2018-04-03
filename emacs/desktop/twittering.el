@@ -10,17 +10,18 @@
 	":home")))
    ("related-to-perlstalker" . "$related-to(perlstalker)")
    ("related-to-musicfreestatic" . "$related-to(musicfreestatic)")
+   ("related-to-musicfreegaming" . "$related-to(musicfreegaming)")
    )
 )
 
 (setq twittering-initial-timeline-spec-string
       '(;":home"
         ":mentions"
-        ":favorites"
+        ;":favorites"
         ":direct_messages"
-	"$related-to-perlstalker" 
-	"$related-to-musicfreestatic"
-        ;"perlstalker/essential"
+	;"$related-to-perlstalker" 
+	;"$related-to-musicfreestatic"
+        "perlstalker/essential"
         ;"perlstalker/news"
 ))
 
@@ -30,9 +31,6 @@
 (add-hook 'twittering-edit-mode-hook (lambda () (ispell-minor-mode) (flyspell-mode)))
 
 ;; url shortening
-(setq twittering-tinyurl-service 'bit.ly)
-(setq twittering-bitly-login "perlstalker")
-(setq twittering-bitly-api-key "R_0de89c3d99aefa6fd4ce76f2501d32e9")
 
 ;; load share to twitter
 (load-file "~/.emacs.d/conf/desktop/share-to-twitter.el")

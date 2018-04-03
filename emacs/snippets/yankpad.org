@@ -31,9 +31,37 @@
 
 \*** Notes
 
-** banner servers
-
-** linux servers
+** banner servers                                              :indent_auto:
+- [ ] remote DBA
+  - [ ] didgit
+  - [ ] imar
+  - [ ] mindy
+  - [ ] sandy
+  - [ ] neptune
+  - [ ] eustace
+  - [ ] larry
+  - [ ] cloudcontrol
+  - [ ] dworadev
+  - [ ] dworaprod
+- [ ] local support
+  - [ ] mobileapps
+  - [ ] mrspuff
+  - [ ] plankton
+  - [ ] pserve
+  - [ ] stanley
+  - [ ] warehouse-new
+  - [ ] xfer
+  - [ ] dwwebdev
+  - [ ] dwwebprod
+  - [ ] esm1
+  - [ ] ban9devapp1
+  - [ ] ban9devssb1
+  - [ ] ban9qaapp1
+  - [ ] ban9qassb1
+  - [ ] ban9prodapp1
+  - [ ] ban9prodssb1
+  - [ ] ban9jobs
+** linux servers                                               :indent_auto:
 
 ** docker servers                                              :indent_auto:
 - [ ] dock02
