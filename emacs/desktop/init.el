@@ -29,7 +29,7 @@
 ;;(load-file "~/.emacs.d/conf/desktop/elfeed.el")
 ;;(load-file "~/.emacs.d/conf/desktop/newsticker.el")
 (load-file "~/.emacs.d/conf/desktop/magit.el")
-(load-file "~/.emacs.d/conf/desktop/gitlab.el")
+;;(load-file "~/.emacs.d/conf/desktop/gitlab.el")
 (load-file "~/.emacs.d/conf/desktop/docker.el")
 (load-file "~/.emacs.d/conf/desktop/web.el")
 
