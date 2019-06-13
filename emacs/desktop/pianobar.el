@@ -1,4 +1,5 @@
-(el-get 'sync "pianobar")
+;;(el-get 'sync "pianobar")
+(package-install 'pianobar)
 ;(set-variable 'pianobar-command "/usr/bin/pianobar")
 ;(set-variable 'pianobar-program-command "/usr/bin/pianobar")
 (setq pianobar-username "perlstalker@gmail.com")

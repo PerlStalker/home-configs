@@ -1,4 +1,5 @@
-(el-get 'sync "emacs-jabber")
+;;(el-get 'sync "emacs-jabber")
+(package-install 'jabber)
 
 (setq jabber-account-list
  '(

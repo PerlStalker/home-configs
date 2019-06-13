@@ -1,5 +1,6 @@
 ;; emms
-(el-get 'sync "emms")
+;;(el-get 'sync "emms")
+(package-install 'emms)
 
 ;; go to playlist : M-x emms-playlist-mode-go
 

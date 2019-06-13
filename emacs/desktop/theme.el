@@ -1,4 +1,6 @@
-(el-get 'sync "color-theme-solarized")
-
-(color-theme-initialize)
-(color-theme-solarized-dark)
+;;(el-get 'sync "color-theme-solarized")
+;;(package-install 'color-theme-solarized)
+;;(color-theme-initialize)
+;;(color-theme-solarized-dark)
+(package-install 'solarized-theme)
+(load-theme 'solarized-dark t)

@@ -1,5 +1,6 @@
 ;(load-file "~/.emacs.d/multi-term.el")
-(el-get 'sync "multi-term")
+					;(el-get 'sync "multi-term")
+(package-install 'multi-term)
 ;(require 'multi-term)
 ;(setq multi-term-program "/bin/bash")
 (setq multi-term-program "/bin/zsh")

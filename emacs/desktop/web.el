@@ -1,4 +1,5 @@
-(el-get 'sync "web-mode")
+;;(el-get 'sync "web-mode")
+(package-install 'web-mode)
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
