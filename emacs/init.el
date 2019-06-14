@@ -10,9 +10,9 @@
 (load-file "~/.emacs.d/conf/common/init.el")
 (if
  (member
-  (system-name) '("rbsmith-desktop.adams.edu" "rbsmith-laptop" "ChrUbuntu" "shelob.vuser.org" "localhost" "archusb.localdomain" "rbsmith-chromebook" "rbsmithdt1"))
- (load-file "~/.emacs.d/conf/desktop/init.el")
- (load-file "~/.emacs.d/conf/server/init.el")
+  (system-name) '("mfs"))
+    (load-file "~/.emacs.d/conf/server/init.el")
+  (load-file "~/.emacs.d/conf/desktop/init.el")
 )
 
 (custom-set-variables
