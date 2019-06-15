@@ -1,5 +1,6 @@
 ;;(el-get 'sync "org-mode")
 (package-install 'org)
+(package-install 'org-plus-contrib)
 ;(add-to-list 'load-path "~/.emacs.d/el-get/org-mode/contrib/lisp/")
 ;(add-to-list 'load-path "~/.emacs.d/el-get/org-mode/contrib/oldexp/")
 
