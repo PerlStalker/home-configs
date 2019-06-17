@@ -2,3 +2,4 @@
 (package-install 'password-store)
 (package-install 'password-store-otp)
 (package-install 'helm-pass)
+(global-set-key (kbd "C-c h w") 'helm-pass)
