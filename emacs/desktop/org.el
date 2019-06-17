@@ -71,10 +71,16 @@
 (setq org-tags-column -76)
 
 (setq org-capture-templates
- '(("t" "Todo" entry (file+headline "~/org/todo.org" "to do") "** TODO %?\n %i\n %a")
-   ("j" "Journal" entry (file+datetree "~/org/journal.org") "* %U %?\n\n %i\n %a")
-   ("p" "Phone call" entry (file+datetree "~/org/journal.org") "* %U  :phone:\n\n %i-Who: %? \n-Company: \n\n")
-   ("c" "Contacts" entry (file "~/org/contacts.org") "* %(org-contacts-template-name)
+      '(("t" "To do")
+	("td" "Task with deadline" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\nDEADLINE: %^T\n\n%?")
+	("ts" "Scheduled Task" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\nSCHEDULED: %^T\n\n%?")
+	("tt" "To do" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\n %i %?\n %a")
+	("i" "Idea" entry (file "~/org/ideas.org") "* %u %^{idea}\n\n%?")
+	("j" "Journal entries")
+	("jj" "Journal" entry (file+olp+datetree "~/org/journal.org") "* %U %?\n\n %i\n %a")
+	("jm" "meeting" entry (file+olp+datetree "~/org/journal.org") "* %^{meeting} %?\n\n %i\n %a")
+	("jp" "Phone call" entry (file+olp+datetree "~/org/journal.org") "* %U  :phone:\n\n %i-Who: %? \n-Company: \n\n")
+	("c" "Contacts" entry (file "~/org/contacts.org") "* %(org-contacts-template-name)
 :PROPERTIES:
 :EMAIL: %(org-contacts-template-email)
 :END:")
