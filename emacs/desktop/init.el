@@ -1,5 +1,6 @@
 ;; desktop
-;(load-file "~/.emacs.d/conf/desktop/server.el")
+;;(load-file "~/.emacs.d/conf/desktop/server.el")
+(load-file "~/.emacs.d/conf/desktop/projectile.el")
 (load-file "~/.emacs.d/conf/desktop/helm.el")
 (load-file "~/.emacs.d/conf/desktop/org.el")
 (load-file "~/.emacs.d/conf/desktop/w3m.el")

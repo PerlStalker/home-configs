@@ -3,6 +3,7 @@
 (package-install 'helm-flyspell)
 (package-install 'helm-google)
 (package-install 'helm-mt)
+(package-install 'helm-projectile)
 (package-install 'helm-themes)
 (package-install 'helm-tramp)
 
