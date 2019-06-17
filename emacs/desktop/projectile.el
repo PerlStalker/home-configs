@@ -1,3 +1,4 @@
+(package-install 'projectile)
 (use-package projectile
   :ensure t
   :config
