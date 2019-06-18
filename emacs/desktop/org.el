@@ -80,25 +80,24 @@
 	("jj" "Journal" entry (file+olp+datetree "~/org/journal.org") "* %U %?\n\n %i\n %a")
 	("jm" "meeting" entry (file+olp+datetree "~/org/journal.org") "* %^{meeting} %?\n\n %i\n %a")
 	("jp" "Phone call" entry (file+olp+datetree "~/org/journal.org") "* %U  :phone:\n\n %i-Who: %? \n-Company: \n\n")
-	("c" "Contacts" entry (file "~/org/contacts.org") "* %(org-contacts-template-name)
+	("c" "Contacts" entry (file+headline "~/org/contacts.org" "Unfiled") "** %(org-contacts-template-wl-name)
 :PROPERTIES:
-:EMAIL: %(org-contacts-template-email)
+:EMAIL: %(org-contacts-template-wl-email)
 :END:")
-   ("m" "Maintenance" entry (function rbsmith-maint-file) "* System Maintenance: %?
-
-- When :: 
-- What :: 
-- Why :: 
+   ("m" "Maintenance" entry (function rbsmith-maint-file) "* System Maintenance
+- When :: %^{When}U
+- What :: %^{What}
+- Why :: %^{Why|Errata updates}
 - Who :: rbsmith
-- Where :: office
-- How Long :: 2 hours
-- Planned Downtime ::  hour
+- Where :: %^{Where|office|home}
+- How Long :: %^{How long|2 hours}
+- Planned Downtime :: %^{Downtime|1 hour}
 
 ** Maintenance Procedure Checklist
 
 - [ ] Add to Ops meeting notes and Maint Calendar
 - [ ] Most recent system backup successful
-- [ ] 
+- [ ] $?
 
 *** Notes
 
@@ -108,18 +107,36 @@
 
 *** Notes
 
+** Completion Data
+
+- Service Verification Completed, Time :: 
+- Actual Downtime :: 
+- Next System Backup Successful, Date :: 
+
+*** Notes
+
 "
     )
    ))
 
-(defun rbsmith-maint-file ()
-    (find-file (concat "~/mnt/shared/CS/Sysadmin/maintenance/"
-	    (format-time-string "%Y-%m")
-	    "/rbsmith-"
-	    (format-time-string "%Y-%m-maintenance.org")
-	    )
+
+(defun get-maint-dir ()
+  (concat "~/mnt/shared/CS/Sysadmin/maintenance/"
+	  (format-time-string "%Y-%m")
+	  "/"
 	  )
-    )
+  )
+
+(defun get-maint-file ()
+  (concat "rbsmith-"
+	  (format-time-string "%Y-%m-%d")
+	  "-maintenance.org"
+	  )
+  )
+
+(defun rbsmith-maint-file ()
+  (find-file (expand-file-name (concat (get-maint-dir) (get-maint-file))))
+  )
  
 (setq org-remember-templates
  '(("Todo" ?t "* TODO %?\n %i\n" "~/org/todo.org")
