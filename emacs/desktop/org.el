@@ -4,10 +4,16 @@
 ;(add-to-list 'load-path "~/.emacs.d/el-get/org-mode/contrib/lisp/")
 ;(add-to-list 'load-path "~/.emacs.d/el-get/org-mode/contrib/oldexp/")
 
-(setq org-babel-sh-command "/usr/sbin/bash")
+(setq org-babel-sh-command "/usr/bin/bash")
 
 (package-install 'yankpad)
 (setq yankpad-file "~/.emacs.d/conf/snippets/yankpad.org")
+
+(setq org-agenda-include-diary nil)
+
+;; (icalendar-import-file "~/.calendars/work.ics" "~/.emacs.d/diary")
+;; (icalendar-import-file "~/.calendars/home.ics" "~/.emacs.d/diary")
+;; (icalendar-import-file "~/.calendars/acad.ics" "~/.emacs.d/diary")
 
 ;; org-modules
 (setq org-modules
@@ -15,6 +21,7 @@
   (org-crypt
    org-habit
    org-gnus
+   org-wl
   )))		 
 
 (require 'ox-latex)
@@ -72,8 +79,8 @@
 
 (setq org-capture-templates
       '(("t" "To do")
-	("td" "Task with deadline" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\nDEADLINE: %^T\n\n%?")
-	("ts" "Scheduled Task" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\nSCHEDULED: %^T\n\n%?")
+	("td" "Task with deadline" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\nDEADLINE: %^T\n\n%a\n%?")
+	("ts" "Scheduled Task" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\nSCHEDULED: %^T\n\n%a\n%?")
 	("tt" "To do" entry (file+headline "~/org/todo.org" "to do") "** TODO %^{title}\n %i %?\n %a")
 	("i" "Idea" entry (file "~/org/ideas.org") "* %u %^{idea}\n\n%?")
 	("j" "Journal entries")
