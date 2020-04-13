@@ -11,6 +11,8 @@
 
 (setq org-agenda-include-diary nil)
 
+(setq org-duration-format (quote h:mm))
+
 ;; (icalendar-import-file "~/.calendars/work.ics" "~/.emacs.d/diary")
 ;; (icalendar-import-file "~/.calendars/home.ics" "~/.emacs.d/diary")
 ;; (icalendar-import-file "~/.calendars/acad.ics" "~/.emacs.d/diary")

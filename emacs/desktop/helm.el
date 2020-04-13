@@ -1,4 +1,5 @@
 (package-install 'helm)
+(package-install 'helm-eww)
 (package-install 'helm-firefox)
 (package-install 'helm-flyspell)
 (package-install 'helm-google)

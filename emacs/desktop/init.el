@@ -4,12 +4,17 @@
 (load-file "~/.emacs.d/conf/desktop/helm.el")
 (load-file "~/.emacs.d/conf/desktop/org.el")
 (load-file "~/.emacs.d/conf/desktop/w3m.el")
-;(load-file "~/.emacs.d/conf/desktop/mail.el")
+(load-flie "~/.emacs.d/conf/desktop/eww.el")
+(setq browse-url-browser-function 'eww-browse-url)
+
+					;(load-file "~/.emacs.d/conf/desktop/mail.el")
 ;(load-file "~/.emacs.d/conf/desktop/pianobar.el")
 ;(load-file "~/.emacs.d/conf/desktop/emms.el")
 ;(load-file "~/.emacs.d/conf/desktop/rcirc.el")
 ;;(load-file "~/.emacs.d/conf/desktop/jabber.el")
-(load-file "~/.emacs.d/conf/desktop/wl.el")
+;;(load-file "~/.emacs.d/conf/desktop/wl.el")
+(load-file "~/.emacs.d/conf/desktop/mu4e.el")
+(load-file "~/.emacs.d/conf/desktop/elfeed.el")
 ;(load-file "~/.emacs.d/conf/desktop/twittering.el")
 ;(load-file "~/.emacs.d/conf/desktop/yasnippet.el")
 (load-file "~/.emacs.d/conf/desktop/theme.el")
@@ -35,3 +40,5 @@
 (load-file "~/.emacs.d/conf/desktop/web.el")
 
 (load-file "~/.emacs.d/conf/desktop/pass.el")
+
+(require 'printing)
