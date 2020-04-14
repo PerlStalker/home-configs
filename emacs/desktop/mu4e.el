@@ -58,6 +58,11 @@
      :name "Logs"
      :query "flag:unread AND (maildir:/Logs OR maildir:/Logs/Backups)"
      :key ?L)
+   ,(make-mu4e-bookmark
+     :name "Flagged"
+     :query "flag:flagged AND NOT flag:trashed"
+     :key ?f)
+
    ))
 
 ;; allow for updating mail using 'U' in the main view:
