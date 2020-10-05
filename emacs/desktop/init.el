@@ -1,13 +1,14 @@
 ;; desktop
 ;;(load-file "~/.emacs.d/conf/desktop/server.el")
 (load-file "~/.emacs.d/conf/desktop/projectile.el")
-(load-file "~/.emacs.d/conf/desktop/helm.el")
+;;(load-file "~/.emacs.d/conf/desktop/helm.el")
+(load-file "~/.emacs.d/conf/desktop/ivy.el")
 (load-file "~/.emacs.d/conf/desktop/org.el")
 (load-file "~/.emacs.d/conf/desktop/w3m.el")
-(load-flie "~/.emacs.d/conf/desktop/eww.el")
+(load-file "~/.emacs.d/conf/desktop/eww.el")
 (setq browse-url-browser-function 'eww-browse-url)
 
-					;(load-file "~/.emacs.d/conf/desktop/mail.el")
+(load-file "~/.emacs.d/conf/desktop/mail.el")
 ;(load-file "~/.emacs.d/conf/desktop/pianobar.el")
 ;(load-file "~/.emacs.d/conf/desktop/emms.el")
 ;(load-file "~/.emacs.d/conf/desktop/rcirc.el")
@@ -32,12 +33,11 @@
 ;(load-file "~/.emacs.d/conf/desktop/chromium.el")
 
 ;(load-file "~/.emacs.d/conf/desktop/blogs.el")
-;;(load-file "~/.emacs.d/conf/desktop/elfeed.el")
-;;(load-file "~/.emacs.d/conf/desktop/newsticker.el")
 (load-file "~/.emacs.d/conf/desktop/magit.el")
 ;;(load-file "~/.emacs.d/conf/desktop/gitlab.el")
 (load-file "~/.emacs.d/conf/desktop/docker.el")
 (load-file "~/.emacs.d/conf/desktop/web.el")
+(load-file "~/.emacs.d/conf/desktop/vterm.el")
 
 (load-file "~/.emacs.d/conf/desktop/pass.el")
 

@@ -25,4 +25,6 @@
     ("http://www.archlinux.org/feeds/news/" work linux)
     ("http://blog.bestpractical.com/atom.xml" work apps)
     ("http://pyd.io/feed/" work apps)
+    
+    ;; ("https://groups.google.com/a/adams.edu/forum/feed/sysadmin-reports/msgs/rss.xml?num=15" work lists asu)
     ))

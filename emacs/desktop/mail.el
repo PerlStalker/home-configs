@@ -13,7 +13,7 @@
 (setq mail-header-separator "")
 (add-hook 'message-mode-hook 'turn-on-flyspell)
 (add-hook 'message-mode-hook 'turn-on-auto-fill)
-(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+;;(add-hook 'message-mode-hook 'turn-on-orgstruct++)
 (add-hook 'message-mode-hook 'turn-on-orgtbl)
 
 (setq mm-verify-option "always")
@@ -25,7 +25,8 @@
 	))
 
 ;; use w3m to render mail
-(setq mm-text-html-renderer 'w3m)
+;;(setq mm-text-html-renderer 'w3m)
+(setq mm-text-html-renderer 'shr)
 (setq mm-inline-text-html-with-images t)
 (setq mm-inline-text-html-with-w3m-keymap nil)
 
@@ -63,7 +64,7 @@
       ; (message (concat "set to " (nth 1 entry)))
       (return))))
 
-(add-hook 'gnus-summary-mode-hook 'select-gpg-user-id)
+;;(add-hook 'gnus-summary-mode-hook 'select-gpg-user-id)
 
 
 ;; Make Gnus NOT ignore [Gmail] mailboxes
@@ -120,6 +121,7 @@
 
 
 (setq gnus-summary-line-format "%U%R%B%(%[%&user-date;: %-15,15f%]%) %s\n")
+;;(setq gnus-summary-line-format "%U%R%B%(%[%D: %-15,15f%]%) %s\n")
 
 ;; make tree view prettier (in xterm)
 ;(setq gnus-summary-make-false-root 'dummy
