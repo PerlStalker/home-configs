@@ -12,6 +12,7 @@
 (setq org-agenda-include-diary nil)
 
 (setq org-duration-format (quote h:mm))
+(setq org-clock-mode-line-total 'current)
 
 ;; (icalendar-import-file "~/.calendars/work.ics" "~/.emacs.d/diary")
 ;; (icalendar-import-file "~/.calendars/home.ics" "~/.emacs.d/diary")
